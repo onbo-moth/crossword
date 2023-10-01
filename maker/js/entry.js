@@ -1,0 +1,13 @@
+const CrosswordTitle   = require("./ui/title.js")
+const ModalManager     = require("./ui/modal.js")
+const QuestionManager  = require("./core/questions.js")
+const Graphics         = require("./graphics/canvas.js")
+const CrosswordManager = require("./core/crossword.js")
+const Exporter         = require("./core/exporter.js")
+
+let title     = new CrosswordTitle()
+let modal     = new ModalManager()
+let qlist     = new QuestionManager(modal)
+let canvas    = new Graphics()
+let crossword = new CrosswordManager( qlist, canvas )
+let exporter  = new Exporter(title, qlist, crossword)

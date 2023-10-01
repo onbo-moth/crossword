@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Crossword Maker</title>
+
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../jquery/jquery-3.7.1.js"></script>
+
+    <script src="bundle.js" defer></script>
+</head>
+<body>
+  <!-- thank you so much chatgpt :pleading_face: -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Left side of the navbar -->
+            <div class="navbar-brand">
+                <u><span id="crosswordTitle">Tytuł</span></u>
+                <input type="text" class="form-control d-none" id="crosswordTitleInput">
+            </div>
+            <!-- Right side of the navbar -->
+            <div class="navbar-nav ms-auto">
+                <!-- <button class="btn btn-secondary mx-2" id="helpButton">Help</button> -->
+                <button class="btn btn-secondary mx-2" id="importButton">Importuj</button>
+                <button class="btn btn-primary mx-2" id="exportButton">Eksportuj</button>
+            </div>
+        </div>
+    </nav>
+  
+    <div class="container-fluid max-height-custom">
+        <div class="row">
+            <!-- Left side for canvas -->
+            <div class="col-9">
+                <canvas id="crosswordCanvas" width="800" height="600"></canvas>
+            </div>
+  
+            <!-- Right side for question input and list -->
+            <div class="col-3">
+                <button class="btn btn-primary mb-3" id="addQuestionButton">Dodaj pytanie</button>
+                <ul class="list-group" id="questionList"></ul>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Add Question Modal -->
+    <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addQuestionModalLabel">Dodaj pytanie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" name="questionModal">
+                    <form>
+                        <div class="mb-3">
+                            <label for="questionInput" class="form-label">Pytanie</label>
+                            <input type="text" class="form-control" name="question" id="questionInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="answerInput" class="form-label">Odpowiedż</label>
+                            <input type="text" class="form-control" name="answer" id="answerInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="directionInput" class="form-label">Kierunek</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="direction" id="horizontalDirection" value="horizontal" checked>
+                                <label class="form-check-label" for="horizontalDirection">Poziomy</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="direction" id="verticalDirection" value="vertical">
+                                <label class="form-check-label" for="verticalDirection">Pionowy</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+                    <button type="button" class="btn btn-primary" id="modalConfirm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
