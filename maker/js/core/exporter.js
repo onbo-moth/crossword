@@ -35,14 +35,6 @@ class Exporter extends EventTarget {
   openExport() {
     let save = {}
 
-    console.log( this.questions )
-    console.log( this.questions.questions )
-
-    console.log( this.title )
-
-    console.log( this.crossword )
-    console.log( this.crossword.placedQuestions )
-
     save.title = this.title.getTitle()
 
     save.questions = []
